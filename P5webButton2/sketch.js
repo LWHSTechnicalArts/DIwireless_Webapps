@@ -40,7 +40,7 @@ function mousePressed() {
   var d2 = dist(mouseX, mouseY, 460, 200);
   
   if (d < 100) {
-    httpPost("https://api.spark.io/v1/devices/53ff72066667574849522567/control?access_token=8f3f2db2213fc45d22a46f7fb0076122423e67fc", {value: '1'});
+    httpPost("https://api.spark.io/v1/devices/deviceIDhere/control?access_token=", {value: '1'});
     // Pick new random color values
     r = random(255);
     g = random(255);
@@ -51,7 +51,7 @@ function mousePressed() {
   }
   
   if (d2 < 100) {
-   httpPost("https://api.spark.io/v1/devices/53ff72066667574849522567/control?access_token=8f3f2db2213fc45d22a46f7fb0076122423e67fc", {value: '2'});
+   httpPost("https://api.spark.io/v1/devices/deviceIDhere/control?access_token=", {value: '2'});
    // Pick new random color values
     r = random(30,80);
     g = random(30,80);
@@ -67,7 +67,7 @@ function touchStarted() {
   var d2 = dist(touchX, touchY, 460, 200);
   
   if (d < 100) {
-    httpPost("https://api.spark.io/v1/devices/53ff72066667574849522567/control?access_token=8f3f2db2213fc45d22a46f7fb0076122423e67fc", {value: '1'});
+    httpPost("https://api.spark.io/v1/devices/deviceIDhere/control?access_token=", {value: '1'});
     // Pick new random color values
     r = random(255);
     g = random(255);
@@ -78,7 +78,7 @@ function touchStarted() {
   }
   
   if (d2 < 100) {
-   httpPost("https://api.spark.io/v1/devices/53ff72066667574849522567/control?access_token=8f3f2db2213fc45d22a46f7fb0076122423e67fc", {value: '2'});
+   httpPost("https://api.spark.io/v1/devices/deviceIDhere/control?access_token=", {value: '2'});
    // Pick new random color values
     r = random(30,80);
     g = random(30,80);
