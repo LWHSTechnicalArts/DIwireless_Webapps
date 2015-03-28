@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+body {
+    background-color: red;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    font-family: Lucida Sans Unicode
+}
+
+</style>
+</head>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<body>
+    <br>
+    <br>
+    <p>Raw Light Level</p>
+    <span id="lig">Waiting for data...</span><br>
+    <span id="tstamp"></span><br>
+
+    <script type="text/javascript">
+
+      window.setInterval(function() {
+
+        var deviceID = "<< device id >>";
+        var accessToken = "<< access token >>";
+        var varName = "light";
+
+        requestURL = "https://api.spark.io/v1/devices/" + deviceID + "/" + varName + "/?access_token=" + accessToken;
+        $.getJSON(requestURL, function(json) {
+                 document.getElementById("lig").innerHTML = json.result;
+                 document.getElementById("lig").style.fontSize = "200px";
+                 //document.getElementById("tstamp").innerHTML = json.coreInfo.last_heard; //time stamp
+                 });
+    }, 100);    //update frequency
+    </script>
+    <p>updates every second</p>
+</body>
+</html>
