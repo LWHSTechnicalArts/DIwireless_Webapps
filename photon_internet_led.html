@@ -17,7 +17,7 @@
 
     function ledOn() {
       console.log("LED is on");
-      clicks++;
+      clicks=1;
       $.post("https://api.particle.io/v1/devices/deviceID/led?access_token=", {
         value: "on"
       });
@@ -25,7 +25,7 @@
 
     function ledOff() {
       console.log("LED is off");
-      clicks++;
+      clicks=0;
       $.post("https://api.particle.io/v1/devices/deviceID/led?access_token=", {
         value: "off"
       });
