@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+  <script>
+    var accessToken = "YOUR ACCESS TOKEN";
+    var deviceID = "YOUR DEVICE ID"
+    var url = "https://api.particle.io/v1/devices/" + deviceID + "/volts";
+
+    function callback(data, status) {
+      if (status == "success") {
+        volts = parseFloat(data.result);
+        volts = volts.toFixed(2);
+        setTimeout(getReading, 1000);
+        document.getElementById("reading").innerHTML = volts;
+      } else {
+        alert("There was a problem");
+      }
+    }
+
+    function getReading() {
+      $.get(url, {
+        access_token: accessToken
+      }, callback);
+    }
+  </script>
+</head>
+
+<body bgcolor = gray>
+
+  <h1>Photon Light Sensor Data</h1>
+
+  <h1 id="reading"></h1>
+  <script>
+    getReading();
+  </script>
+</body>
+
+</html>
