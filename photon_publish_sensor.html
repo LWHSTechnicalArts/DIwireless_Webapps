@@ -9,18 +9,18 @@
     var deviceID = "YOUR DEVICE ID"
     var url = "https://api.particle.io/v1/devices/" + deviceID + "/volts";
 
-    function callback(data, status) {
+    function callback(data, status) {    //This function checks that communcation is happening
       if (status == "success") {
         volts = parseFloat(data.result);
-        volts = volts.toFixed(2);
-        setTimeout(getReading, 1000);
+        volts = volts.toFixed(2);        //
+        setTimeout(getReading, 1000);    //this calls the getReading function every second
         document.getElementById("reading").innerHTML = volts;
       } else {
         alert("There was a problem");
       }
     }
 
-    function getReading() {
+    function getReading() {     //this function does the actual reading
       $.get(url, {
         access_token: accessToken
       }, callback);
