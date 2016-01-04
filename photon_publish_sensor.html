@@ -12,7 +12,7 @@
     function callback(data, status) {    //This function checks that communcation is happening
       if (status == "success") {
         volts = parseFloat(data.result);
-        volts = volts.toFixed(2);        //
+        volts = volts.toFixed(2);        //determines how many decimal places show
         setTimeout(getReading, 1000);    //this calls the getReading function every second
         document.getElementById("reading").innerHTML = volts;
       } else {
