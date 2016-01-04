@@ -21,9 +21,7 @@
     }
 
     function getReading() {     //this function does the actual reading
-      $.get(url, {
-        access_token: accessToken
-      }, callback);
+       $.get(url, {access_token: accessToken}, callback);
     }
   </script>
 </head>
