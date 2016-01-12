@@ -1,5 +1,5 @@
-var accessToken = "486edd39ff75e1ea2258702670f6e04dc78ad379";
-var deviceID = "260040000247343138333038"
+var accessToken = "your access token";
+var deviceID = "your device ID"
 var url= "https://api.particle.io/v1/devices/"+deviceID+"/analog?access_token="+accessToken;
 var x=0;
 var y=50;
