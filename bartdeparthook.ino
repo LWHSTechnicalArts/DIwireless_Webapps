@@ -9,6 +9,8 @@ void setup() {
     //  particle serial monitor
     Serial.begin(115200);
     
+    RGB.control(true);
+    
     pinMode(D7, OUTPUT);
 
     // Lets listen for the hook response
@@ -49,14 +51,11 @@ void gotBartData(const char *name, const char *data) {
     
 
     
-     if (minStr.toInt()<11 && minStr.toInt()>4){       //flash LED rapidly if train is coming in between 5 and 10 min
-         for(int i=0;i<25;i++){
-            digitalWrite(D7,HIGH);
-            delay(100);
-            digitalWrite(D7,LOW);
-            delay(100);
+     if (minStr.toInt()<11 && minStr.toInt()>4){       //LED is green if train is coming in between 5 and 10 min
+            RGB.color(0,255,0);
+            delay(100000);
+            RGB.color(0,0,0);
          }
-    }
 }
 
 // Returns any text found between a start and end string inside 'str'
