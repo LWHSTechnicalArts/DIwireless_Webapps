@@ -15,7 +15,7 @@ void loop() {
   Serial.println(reading);
   
   if (reading == 0) {
-      Particle.publish("helloparticle");   //function name must match in receiving sketch
+      Particle.publish("hellophoton");   //function name must match in receiving sketch
       delay(350);
   }
   delay(50);
