@@ -22,7 +22,7 @@
 
       var requestVariable = {
         method: 'POST',
-        url: 'https://api.particle.io/v1/devices/24003c001347343432313031/led?access_token=486edd39ff75e1ea2258702670f6e04dc78ad379',
+        url: 'https://api.particle.io/v1/devices/yourdeviceID/led?access_token=',
         data: {
           value: 'on'
         }
@@ -44,7 +44,7 @@
 
       var getVariable = {
         method: 'GET',
-        url: 'https://api.particle.io/v1/devices/0123456789abcdef01234567/pool_tmp',
+        url: 'https://api.particle.io/v1/devices/yourdeviceID/led?access_token=',
         headers: {
           'Authorization': "Bearer 1234"
         },
@@ -77,7 +77,7 @@
 
       var requestVariable = {
         method: 'POST',
-        url: 'https://api.particle.io/v1/devices/24003c001347343432313031/led?access_token=486edd39ff75e1ea2258702670f6e04dc78ad379',
+        url: 'https://api.particle.io/v1/devices/yourdeviceID/led?access_token=',
         data: {
           value: 'off'
         }
