@@ -4,8 +4,8 @@ int analogPin = A0;
 
 void setup() {
     Serial.begin(9600);
-    Spark.variable("analog", &reading, INT);
-    Spark.variable("volts", &volts, DOUBLE);
+    Particle.variable("analog", &reading, INT);
+    Particle.variable("volts", &volts, DOUBLE);
 }
 
 void loop() {
