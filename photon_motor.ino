@@ -3,8 +3,8 @@ int pos = 0;
 
 void setup() {
     serv.attach(D0);
-    Spark.function("setpos", setPos);
-    Spark.variable("getpos", &pos, INT);
+    Particle.function("setpos", setPos);
+    Particle.variable("getpos", &pos, INT);
 }
 
 void loop() {
