@@ -8,11 +8,11 @@ void setup() {
     // You can also watch what's sent over serial with the particle cli with
     //  particle serial monitor
     Serial.begin(115200);
-    
+
     pinMode(D7, OUTPUT);
 
     // Lets listen for the hook response
-    Spark.subscribe("hook-response/get_weather", gotWeatherData, MY_DEVICES);
+    Particle.subscribe("hook-response/get_weather", gotWeatherData, MY_DEVICES);
 
     // Lets give ourselves 10 seconds before we actually start the program.
     // That will just give us a chance to open the serial monitor before the program sends the request
@@ -38,7 +38,7 @@ void loop() {
 
 // This function will get called when weather data comes in
 void gotWeatherData(const char *name, const char *data) {
-    // Important note!  -- Right now the response comes in 512 byte chunks.  
+    // Important note!  -- Right now the response comes in 512 byte chunks.
     //  This code assumes we're getting the response in large chunks, and this
     //  assumption breaks down if a line happens to be split across response chunks.
     //
@@ -71,11 +71,11 @@ void gotWeatherData(const char *name, const char *data) {
     if (windStr != NULL) {
         Serial.println("The wind is: " + windStr);
     }
-    
+
      if (humidityStr != NULL) {
         Serial.println("The humidity is: " + humidityStr);
     }
-    
+
      if (humidityStr.toInt() > 95){   //if humidity is above 95 the LED will blink 10 times every minute to indicate possible rainfall
          for(int i=0;i<10;i++){
             digitalWrite(D7,HIGH);
@@ -105,5 +105,3 @@ String tryExtractString(String str, const char* start, const char* end) {
 
     return str.substring(idx + strlen(start), endIdx);
 }
-
-
