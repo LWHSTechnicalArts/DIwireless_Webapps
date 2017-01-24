@@ -10,7 +10,7 @@ void setup() {
     Serial.begin(115200);
 
     // Lets listen for the hook response
-    Spark.subscribe("hook-response/get_weather", gotWeatherData, MY_DEVICES);
+    Particle.subscribe("hook-response/get_weather", gotWeatherData, MY_DEVICES);
 
     // Lets give ourselves 10 seconds before we actually start the program.
     // That will just give us a chance to open the serial monitor before the program sends the request
@@ -28,7 +28,7 @@ void loop() {
     Serial.println("Requesting Weather!");
 
     // publish the event that will trigger our Webhook
-    Spark.publish("get_weather");
+    Particle.publish("get_weather");
 
     // and wait at least 60 seconds before doing it again
     delay(60000);
@@ -36,7 +36,7 @@ void loop() {
 
 // This function will get called when weather data comes in
 void gotWeatherData(const char *name, const char *data) {
-    // Important note!  -- Right now the response comes in 512 byte chunks.  
+    // Important note!  -- Right now the response comes in 512 byte chunks.
     //  This code assumes we're getting the response in large chunks, and this
     //  assumption breaks down if a line happens to be split across response chunks.
     //
