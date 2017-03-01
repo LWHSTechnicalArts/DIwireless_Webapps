@@ -18,7 +18,7 @@
  Screen-->Photon
  -------------
  GND --> GND
- VIN --> VIN
+ VIN --> 3V3
  CLK --> D3
  MISO--> D4
  MOSI--> D5
