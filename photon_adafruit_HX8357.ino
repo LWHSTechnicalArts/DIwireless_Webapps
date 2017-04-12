@@ -14,6 +14,8 @@
  ****************************************************/
 //Modified by akleindolph 3-17-17
 
+//!!!!!! = as of 4-12-17 this would not run on firmware version 0.6.1 or above. Use v0.6.0
+
  /* WIRING:
  Screen-->Photon
  -------------
