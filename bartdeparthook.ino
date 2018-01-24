@@ -8,9 +8,9 @@ void setup() {
     // You can also watch what's sent over serial with the particle cli with
     //  particle serial monitor
     Serial.begin(115200);
-    
+
     RGB.control(true);
-    
+
     pinMode(D7, OUTPUT);
 
     // Lets listen for the hook response
@@ -40,17 +40,17 @@ void loop() {
 
 // This function will get called when train data comes in
 void gotBartData(const char *name, const char *data) {
-    // Important note!  -- Right now the response comes in 512 byte chunks.  
+    // Important note!  -- Right now the response comes in 512 byte chunks.
     //  This code assumes we're getting the response in large chunks, and this
     //  assumption breaks down if a line happens to be split across response chunks.
     String str = String(data);
     String minStr = tryExtractString(str, "<minutes>" ,"</minutes>" );    //extract the min before a train leaves
-    
+
     Serial.println("Min to depart: " + minStr);
     Serial.println();
-    
 
-    
+
+
      if (minStr.toInt()<11 && minStr.toInt()>4){       //LED is green if train is coming in between 5 and 10 min
             RGB.color(0,255,0);
             delay(100000);
@@ -62,20 +62,18 @@ void gotBartData(const char *name, const char *data) {
 // example: startfooend  -> returns foo
 String tryExtractString(String str, const char* start, const char* end) {
     if (str == NULL) {
-        return NULL;
+        return "";
     }
 
     int idx = str.indexOf(start);
     if (idx < 0) {
-        return NULL;
+        return "";
     }
 
     int endIdx = str.indexOf(end);
     if (endIdx < 0) {
-        return NULL;
+        return "";
     }
 
     return str.substring(idx + strlen(start), endIdx);
 }
-
-
