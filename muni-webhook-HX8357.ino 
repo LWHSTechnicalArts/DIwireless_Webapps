@@ -140,17 +140,17 @@ void gotWeatherData(const char *name, const char *data) {
 // example: startfooend  -> returns foo
 String tryExtractString(String str, const char* start, const char* end) {
     if (str == NULL) {
-        return NULL;
+        return "";
     }
 
     int idx = str.indexOf(start);
     if (idx < 0) {
-        return NULL;
+        return "";
     }
 
     int endIdx = str.indexOf(end);
     if (endIdx < 0) {
-        return NULL;
+        return "";
     }
 
     return str.substring(idx + strlen(start), endIdx);

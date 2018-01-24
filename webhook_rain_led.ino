@@ -89,18 +89,18 @@ void gotWeatherData(const char *name, const char *data) {
 // Returns any text found between a start and end string inside 'str'
 // example: startfooend  -> returns foo
 String tryExtractString(String str, const char* start, const char* end) {
-    if (str == NULL) {
-        return NULL;
+    if (str == "") {
+        return "";
     }
 
     int idx = str.indexOf(start);
     if (idx < 0) {
-        return NULL;
+        return "";
     }
 
     int endIdx = str.indexOf(end);
     if (endIdx < 0) {
-        return NULL;
+        return "";
     }
 
     return str.substring(idx + strlen(start), endIdx);
